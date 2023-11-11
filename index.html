@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Super SoteliFran</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Supermercado SoteliFran</h1>
+
+        <form id="compraForm">
+            <div class="form-group">
+                <label for="categoriaSelect">Selecciona una categoría:</label>
+                <select class="form-control" id="categoriaSelect">
+                    <option value="carnes">Carnes</option>
+                    <option value="lacteos">Lácteos</option>
+                    <option value="ferreteria">Ferretería</option>
+                    <option value="despensa">Despensa</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="productoSelect">Selecciona un producto:</label>
+                <select class="form-control" id="productoSelect">
+                    <!-- Opciones se agregarán dinámicamente -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cantidadInput">Cantidad:</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="cantidadInput"
+                    value="0"/>
+            </div>
+
+            <button
+                type="button"
+                class="btn btn-primary text-right"
+                style="padding-right: 15px; padding-bottom: 20px"
+                onclick="agregarAlCarrito()">
+                Agregar al Carrito
+            </button>
+        </form>
+
+        <div class="table-responsive" style="padding-top: 20px">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCuerpo">
+                    <!-- Aquí se agregarán las filas dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-md-right" id="detalle" style="padding-right: 400px">
+        <button
+            type="button"
+            id="detalles"
+            class="btn btn-primary"
+            data-toggle="modal"
+            style="margin-top: 20px"
+            onclick="mostrarResumen()">
+            Ver Resumen de Compra
+        </button>
+    </div>
+
+    <div
+        class="modal fade"
+        id="boletaModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="boletaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="boletaModalLabel">
+                        Resumen de Compra (Boleta)
+                    </h5>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Categoría</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Total</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody id="boletaCuerpoModal">
+                                <!-- Se agregarán las filas de la boleta dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p id="totalCompraModal">Total a pagar: $0.00</p>
+                    <button
+                        type="button"
+                        class="btn btn-success"
+                        id="botonPagarModal"
+                        style="display: none"
+                        onclick="realizarPago()">
+                        Pagar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/boleta.js"></script>
+    <script src="./js/interfaz.js"></script>
+    <script src="./js/manejadorCarrito.js"></script>
+    <script src="./js/utils.js"></script>
+
+  </body>
+</html>
