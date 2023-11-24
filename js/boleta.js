@@ -26,7 +26,7 @@ function realizarPago() {
   function mostrarResumen() {
   // Comprobar si el carrito está vacío
   if (carrito.length === 0) {
-  // Muestra la alerta SweetAlert2
+  // Muestra la alerta carrito vacío
   Swal.fire({
   position: 'top',
   icon: 'info',
@@ -36,7 +36,7 @@ function realizarPago() {
   });
   return;
   }
-  $('#boletaModal').modal('show'); // Abrir el modal si el carrito tiene productos
+  $('#boletaModal').modal('show'); 
   }
   
   // Función para mostrar los datos en la boleta
